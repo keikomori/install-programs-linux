@@ -67,6 +67,12 @@ sudo apt upgrade -y &&
 echo 'Instalando Descompactadores'
 sudo apt-get install zip unzip rar unrar -y &&
 
+# instalando Synapse
+echo 'Instalando Synapse'
+sudo add-apt-repository ppa:synapse-core/ppa &&
+sudo apt-get update &&
+sudo apt-get install synapse -y &&
+
 # instalando Spotify
 echo 'Instalando Spotify' 
 snap install spotify &&
@@ -83,6 +89,13 @@ sudo apt install anydesk &&
 sudo apt install gdebi-core wget -y &&
 wget -O ~/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb" &&
 sudo gdebi ~/discord.deb -y &&
+
+# instalando telegram
+sudo snap install telegram-desktop &&
+
+# instalando Slack
+echo 'Instalando Slack'
+sudo apt-get install slack-desktop -y &&
 
 
 echo "Instalação bem sucedida!"
