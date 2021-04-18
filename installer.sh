@@ -43,13 +43,6 @@ read git_config_user_email
 git config --global user.email $git_config_user_email
 clear
 
-# instalando python e bibliotacas Machine Learning
-sudo apt-get install python3 -y &&
-
-sudo apt-get install python3-pip -y &&
-
-pip3 install -U scikit-learn -y &&
-
 # instalando drivers Nvidia
 sudo ubuntu-drivers autoinstall -y &&
 
@@ -67,12 +60,6 @@ sudo apt upgrade -y &&
 echo 'Instalando Descompactadores'
 sudo apt-get install zip unzip rar unrar -y &&
 
-# instalando Synapse
-echo 'Instalando Synapse'
-sudo add-apt-repository ppa:synapse-core/ppa &&
-sudo apt-get update &&
-sudo apt-get install synapse -y &&
-
 # instalando Spotify
 echo 'Instalando Spotify' 
 snap install spotify &&
@@ -86,9 +73,7 @@ sudo apt update &&
 sudo apt install anydesk &&
 
 # instalando discord
-sudo apt install gdebi-core wget -y &&
-wget -O ~/discord.deb "https://discordapp.com/api/download?platform=linux&format=deb" &&
-sudo gdebi ~/discord.deb -y &&
+sudo snap install discord
 
 # instalando telegram
 sudo snap install telegram-desktop &&
