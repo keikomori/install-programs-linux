@@ -15,13 +15,6 @@ then
 fi
 echo "Atualização realizada com sucesso!"
 
-echo "Atualizando sistema operacional ..."
-if ! sudo apt-get dist-upgrade -y
-then
-    echo "Não foi possível atualizar pacotes."
-    exit 1
-fi
-echo "Atualização do SO realizada com sucesso!"
 
 # instalando curl
 echo 'Instalando curl' 
