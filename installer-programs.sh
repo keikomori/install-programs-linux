@@ -22,7 +22,7 @@ sudo apt install curl -y &&
 
 # instalando Git
 echo 'Instalando git' 
-sudo apt-get install git -y &&
+sudo apt-get install git-all -y &&
 
 #Configurando usuario do GIT
 echo "Informe o seu user git:"
