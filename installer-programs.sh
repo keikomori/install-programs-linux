@@ -101,13 +101,20 @@ sudo snap install pycharm-community --classic &&
 
 
 #install gcc
-sudo apt-get install gcc
+sudo apt-get install gcc &&
 
 # instalando o make
-sudo apt install make
+sudo apt install make &&
 
+# instalando OBS Studio
+sudo apt install ffmpeg &&
+sudo apt install v4l2loopback-dkms -y &&
 
-
+sudo add-apt-repository ppa:obsproject/obs-studio &&
+sudo apt update &&
+sudo apt install obs-studio &&
+ 
+ 
 
 echo "Instalação bem sucedida!"
 echo  .##.....##.#########.##.##.....##.#########..
