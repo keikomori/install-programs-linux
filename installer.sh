@@ -110,6 +110,9 @@ sudo snap install pycharm-community --classic &&
 #install gcc
 sudo apt-get install gcc
 
+# instalando o make
+sudo apt install make
+
 
 
 
