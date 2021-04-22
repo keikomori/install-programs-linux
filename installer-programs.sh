@@ -16,16 +16,12 @@ fi
 echo "Atualização realizada com sucesso!"
 
 
-# instalando curl
-echo 'Instalando curl' 
-sudo apt install curl -y &&
-
 # instalando Git
 echo 'Instalando git' 
 sudo apt-get install git-all -y &&
 
 #Configurando usuario do GIT
-echo "Informe o seu user git:"
+echo "Informe o seu nome git:"
 read git_config_user_name
 git config --global user.name "$git_config_user_name"
 clear
@@ -38,6 +34,10 @@ clear
 
 # instalando drivers Nvidia
 sudo ubuntu-drivers autoinstall &&
+
+# instalando curl
+echo 'Instalando curl' 
+sudo apt install curl -y &&
 
 # instalando VS Code
 echo 'Instalando VS Code'
