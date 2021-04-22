@@ -22,7 +22,7 @@ echo 'Instalando git'
 sudo apt-get install git-all -y &&
 
 #Configurando usuario do GIT
-echo "Informe o seu user git:"
+echo "Informe o seu nome git:"
 read git_config_user_name
 git config --global user.name "$git_config_user_name"
 clear
@@ -32,11 +32,6 @@ echo "Informe o seu email do git:"
 read git_config_user_email
 git config --global user.email $git_config_user_email
 clear
-
-# Instalação do Python3
-echo 'Instalando python e suas dependencias'
-sudo apt install python3-pip build-essential wget python3-dev python3-venv python3-wheel libxslt-dev libzip-dev libldap2-dev libsasl2-dev python3-setuptools node-less -y &&
-sudo apt install python3-virtualenv -y &&
 
 # Instalação do conversor HTML para PDF
 echo 'Instalando conversor HTML para PDF'
@@ -60,22 +55,27 @@ sudo apt-get update &&
 sudo apt-get install postgresql-10 -y &&
 echo 'postgresql instalado com sucesso'
 
+# Instalação do Python e suas dependencias
+sudo apt-get install -y python3-pip -y &&
+
+sudo apt-get install python-dev python3-dev build-essential libjpeg-dev libpq-dev libjpeg8-dev libxml2-dev libssl-dev libffi-dev libmysqlclient-dev libxslt1-dev zlib1g-dev libsasl2-dev libldap2-dev  liblcms2-dev -y &&
+
+
+# Instalação das dependencias web
+sudo apt-get install -y npm &&
+sudo ln -s /usr/bin/nodejs /usr/bin/node &&
+sudo npm install -g less less-plugin-clean-css && 
+sudo apt-get install -y node-less
 
 # Instalação Odoo
 echo 'Instalando Odoo'
-sudo git clone https://www.github.com/odoo/odoo --depth 1 --branch 12.0 /opt/odoo12 &&
+sudo git clone https://www.github.com/odoo/odoo --depth 1 --branch 12.0 --single-branch &&
 
-cd /opt/odoo12 &&
+cd odoo12 &&
 
-sudo virtualenv -p python3 odoo12env &&
-source odoo12env/bin/activate &&
+sudo pip3 install -r requirements.txt &&
 
-
-sudo su &&
-wget -O - https://nightly.odoo.com/odoo.key | apt-key add - &&
-echo "deb http://nightly.odoo.com/12.0/nightly/deb/ ./" >> /etc/apt/sources.list.d/odoo.list &&
-apt-get update && apt-get install odoo &&
-
+echo 'Configure o Odoo'
 
 
 echo "Instalação bem sucedida!"
