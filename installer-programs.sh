@@ -8,17 +8,24 @@
 #   - Ubuntu 20.04.2.0 LTS
 #   - arch=amd64
 
+echo '..............................................................'
+echo '.            Programs Installer Ubuntu 20.04                 .'
+echo '.          author: https://github.com/keikomori              .'
+echo '..............................................................'
+
+
 echo "Atualizando pacotes ..."
 if ! sudo apt-get update && sudo apt-get upgrade -y
 then
     echo "Não foi possível atualizar os repositórios. Verifique seu arquivo /etc/apt/sources.list"
     exit 1
 fi
-echo "Atualização realizada com sucesso!"
+echo "Atualização realizada com sucesso!\n\n"
 
-
+echo '..............................................................'
 # instalando Git
-echo 'Instalando git' 
+echo '.                       Instalando git                       .'
+echo '..............................................................\n'
 sudo apt-get install git-all -y &&
 
 #Configurando usuario do GIT
@@ -33,15 +40,21 @@ read git_config_user_email
 git config --global user.email $git_config_user_email
 clear
 
+echo '..............................................................'
+echo '.                   Instalando drivers                       .'
+echo '..............................................................\n'
 # instalando drivers Nvidia
 sudo ubuntu-drivers autoinstall &&
 
-# instalando curl
+echo '..............................................................'
+echo '.                   Instalando curl                          .'
+echo '..............................................................\n'
 echo 'Instalando curl' 
 sudo apt install curl -y &&
 
-# instalando VS Code
-echo 'Instalando VS Code'
+echo '..............................................................'
+echo '.                  Instalando VS Code                        .'
+echo '..............................................................\n'
 sudo apt update &&
 sudo apt install software-properties-common apt-transport-https wget -y &&
 wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add - &&
@@ -50,36 +63,43 @@ sudo apt install code -y &&
 sudo apt update &&
 sudo apt upgrade -y &&
 
-# instalando o descompactadores
-echo 'Instalando Descompactadores'
+echo '..............................................................'
+echo '.              Instalando Descompactadores                   .'
+echo '..............................................................\n'
 sudo apt-get install zip unzip rar unrar -y &&
 
-# instalando Spotify
-echo 'Instalando Spotify' 
+echo '..............................................................'
+echo '.                  Instalando Spotify                        .'
+echo '..............................................................\n'
 sudo snap install spotify &&
 
-# instalando AnyDesk
-echo 'Instalando AnyDesk'
+echo '..............................................................'
+echo '.                  Instalando AnyDesk                        .'
+echo '..............................................................\n'
 sudo apt update &&
 wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add - &&
 echo "deb [arch=amd64] http://deb.anydesk.com/ all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list &&
 sudo apt update &&
 sudo apt install anydesk &&
 
-# instalando discord
-echo 'Instalando Discord'
+echo '..............................................................'
+echo '.                  Instalando Discord                        .'
+echo '..............................................................\n'
 sudo snap install discord
 
-# instalando telegram
-echo 'Instalando Telegram'
+echo '..............................................................'
+echo '.                  Instalando Telegram                        .'
+echo '..............................................................\n'
 sudo snap install telegram-desktop &&
 
-# instalando Slack
-echo 'Instalando Slack'
+echo '..............................................................'
+echo '.                  Instalando Slack                          .'
+echo '..............................................................\n'
 sudo apt-get install slack-desktop -y &&
 
-#instalando postgresql
-echo 'Instalando Postgresql'
+echo '..............................................................'
+echo '.              Instalando Postgresql:10                      .'
+echo '..............................................................\n'
 # Create the file repository configuration:
 sudo sh -c 'echo "deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list' &&
 
@@ -96,18 +116,25 @@ echo 'postgresql instalado com sucesso'
 
 #------
 
-#install pycharm
-echo 'Instalando PyCharm'
+echo '..............................................................'
+echo '.                  Instalando PyCharm                        .'
+echo '..............................................................\n'
 sudo snap install pycharm-community --classic &&
 
 
-#install gcc
+echo '..............................................................'
+echo '.                    Instalando gcc                          .'
+echo '..............................................................\n'
 sudo apt-get install gcc &&
 
-# instalando o make
+echo '..............................................................'
+echo '.                   Instalando Make                          .'
+echo '..............................................................\n'
 sudo apt install make &&
 
-# instalando OBS Studio
+echo '..............................................................'
+echo '.                     Instalando OBS                         .'
+echo '..............................................................\n'
 sudo apt install ffmpeg &&
 sudo apt install v4l2loopback-dkms -y &&
 
@@ -115,7 +142,21 @@ sudo add-apt-repository ppa:obsproject/obs-studio &&
 sudo apt update &&
 sudo apt install obs-studio &&
  
- 
+ echo '..............................................................'
+echo '.                  Instalando Docker                        .'
+echo '..............................................................\n'
+sudo apt-get update &&
+sudo apt install apt-transport-https ca-certificates curl software-properties-common -y &&
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - &&
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" &&
+sudo apt-get update &&
+sudo apt install docker-ce &&
+
+
+
+
+
+sudo apt-get update && sudo apt-get upgrade -y &&
 
 echo "Instalação bem sucedida!"
 echo  .##.....##.#########.##.##.....##.#########..
