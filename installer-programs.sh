@@ -6,6 +6,7 @@
 # version: 1.0
 # test:
 #   - Ubuntu 20.04.2.0 LTS
+#   - arch=amd64
 
 echo "Atualizando pacotes ..."
 if ! sudo apt-get update && sudo apt-get upgrade -y
@@ -61,7 +62,7 @@ sudo snap install spotify &&
 echo 'Instalando AnyDesk'
 sudo apt update &&
 wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | sudo apt-key add - &&
-echo "deb http://deb.anydesk.com/ all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list &&
+echo "deb [arch=amd64] http://deb.anydesk.com/ all main" | sudo tee /etc/apt/sources.list.d/anydesk-stable.list &&
 sudo apt update &&
 sudo apt install anydesk &&
 
@@ -80,7 +81,7 @@ sudo apt-get install slack-desktop -y &&
 #instalando postgresql
 echo 'Instalando Postgresql'
 # Create the file repository configuration:
-sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list' &&
+sudo sh -c 'echo "deb [arch=amd64] http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list' &&
 
 # Import the repository signing key:
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - &&
@@ -120,7 +121,7 @@ echo "Instalação bem sucedida!"
 echo  .##.....##.#########.##.##.....##.#########..
 echo  .##...##...##........##.##...##...##.....##.. 
 echo  .##.##.....##........##.##.##.....##.....##..
-echo  .###.......#######...## ###.......##.....##..
+echo  .###.......#######...##.###.......##.....##..
 echo  .##.##.....##........##.##.##.....##.....##..
 echo  .##...##...##........##.##...##...##.....##..
 echo  .##.....##.#########.##.##.....##.#########..
