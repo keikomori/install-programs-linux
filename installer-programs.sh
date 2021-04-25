@@ -142,7 +142,7 @@ sudo add-apt-repository ppa:obsproject/obs-studio &&
 sudo apt update &&
 sudo apt install obs-studio &&
  
- echo '..............................................................'
+echo '..............................................................'
 echo '.                  Instalando Docker                        .'
 echo '..............................................................\n'
 sudo apt-get update &&
@@ -152,11 +152,18 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt-get update &&
 sudo apt install docker-ce &&
 
-
+echo '..............................................................'
+echo '.              Instalando Google Chrome                      .'
+echo '..............................................................\n'
+wget -q -O -- https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -- &&
+sudo sh -c ‘echo “deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main” >> /etc/apt/sources.list.d/google.list’ &&
+sudo apt update && 
+sudo apt install google-chrome-stable &&
 
 
 
 sudo apt-get update && sudo apt-get upgrade -y &&
+
 
 echo "Instalação bem sucedida!"
 echo  .##.....##.#########.##.##.....##.#########..
