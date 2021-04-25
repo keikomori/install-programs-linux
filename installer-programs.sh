@@ -160,6 +160,14 @@ sudo sh -c ‘echo “deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ st
 sudo apt update && 
 sudo apt install google-chrome-stable &&
 
+echo '..............................................................'
+echo '.                 Instalando Gimp                            .'
+echo '..............................................................\n'
+sudo add-apt-repository ppa:otto-kesselgulasch/gimp -y &&
+sudo apt install gimp &&
+
+
+
 
 
 sudo apt-get update && sudo apt-get upgrade -y &&
